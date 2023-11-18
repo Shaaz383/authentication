@@ -1,0 +1,50 @@
+Mongo DB Practice
+
+--How can I perform a case-insensitive search in Mongoose ?
+    
+    let regex = new RegExp("Shaaz" , 'i') -- it will search all the name which contain Shaaz
+    let regex = new RegExp("^Shaaz$" , 'i') -- it will search only things written between ^ and $
+
+    basically isko tb use krte hai jb hm search k time pe letter small ho ya capital ya mix hme wahi milta hai jo search krte hai jaise ki agr "Shaaz" ko khojna hai to hm search time pe "sHaAZ" aise bhi likh denge to mil jayega 
+
+      // let regex = new RegExp("^Shaaz123$" , 'i')
+  // let userFounded = await userModel.find({username : regex})
+
+
+--How do I find documents where an array field contains all of a set of values ?
+
+      let userFounded = await userModel.find({categories : {$all : ['Suit']}})
+
+--How can i search for documents with a specific date range in mongoose 
+
+      var date 1 = new Date('2023-11-02)
+      var date 2 = new Date('2023-11-03)
+
+      let user = await userModel.find({datecreated :{$gte : date1, $lte : date2}})
+
+--how can i filter documents based on the existence of a field in Mongoose 
+
+--how can i filter documents based on a specific field 's length in Mongoose 
+
+$expr : {
+  $and : [
+    {$gte : [{$strLenCP : "$nickname"},13]}
+    {$lte : [{$strLenCP : "$nickname"},122]}
+  ]
+}
+
+
+
+
+Authentication & Authorization 
+
+Steps 
+--install these packages 
+ npm i passport passport-local passport-local-mongoose mongoose express-session 
+
+--write app.js code first in app.js file and write it after view engine and before logger 
+
+--setup user.js then properly
+
+--in index.js try register first and then other codes as well 
+
